@@ -5,17 +5,17 @@ Encode &amp; Decode Windows Form Application using VB.NET
 
 Encoding/Decoding Methods
 ===========
-Base64
-HTML
-HtmlAttribute
-JavaScriptString
-MD5 (Hash)
-SHA1 (Hash)
-SHA256 (Hash)
-SHA384 (Hash)
-SHA512 (Hash)
-URL
-URLPath
+Base64 <br>
+HTML <br>
+HtmlAttribute <br>
+JavaScriptString <br>
+MD5 (Hash) <br>
+SHA1 (Hash) <br>
+SHA256 (Hash) <br>
+SHA384 (Hash) <br>
+SHA512 (Hash) <br>
+URL <br>
+URLPath <br>
 
 VB.NET
 ===========
@@ -23,6 +23,6 @@ VB.NET
 
 Imports
 ===========
-System.Security.Cryptography
-System.Text.RegularExpressions
+System.Security.Cryptography <br>
+System.Text.RegularExpressions <br>
 System.Web
