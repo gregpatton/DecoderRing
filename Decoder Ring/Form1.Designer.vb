@@ -98,7 +98,7 @@ Partial Class frmMain
         'cmbMethod
         '
         Me.cmbMethod.FormattingEnabled = True
-        Me.cmbMethod.Items.AddRange(New Object() {"Base64", "HTML", "HTML Attribute", "JavaScript String", "MD5", "SHA1", "SHA256", "SHA384", "SHA512", "URL"})
+        Me.cmbMethod.Items.AddRange(New Object() {"Base64", "HTML", "HTML Attribute", "JavaScript String", "MD5", "SHA1", "SHA256", "SHA384", "SHA512", "URL", "URL Path", "Reverse", "Lowercase", "Uppercase", "Rot13"})
         Me.cmbMethod.Location = New System.Drawing.Point(6, 29)
         Me.cmbMethod.Name = "cmbMethod"
         Me.cmbMethod.Size = New System.Drawing.Size(274, 21)

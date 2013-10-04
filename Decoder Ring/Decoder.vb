@@ -62,6 +62,10 @@ Public Class Decoder
         SHA512 = 8
         URL = 9
         URLPath = 10
+        Reverse = 11
+        Lowercase = 12
+        Uppercase = 13
+        Rot13 = 14
     End Enum
 
 #End Region
@@ -117,6 +121,18 @@ Public Class Decoder
 
                 Case EncodingMethod.URLPath
                     EncodeUrlPath()
+
+                Case EncodingMethod.Reverse
+                    ReverseString()
+
+                Case EncodingMethod.Lowercase
+                    Lowercase()
+
+                Case EncodingMethod.Uppercase
+                    Uppercase()
+
+                Case EncodingMethod.Rot13
+                    Rot13()
 
                 Case Else
                     Output = INVALIDREQUEST
@@ -204,7 +220,6 @@ Public Class Decoder
         StageBuffer = mySHA1.ComputeHash(StageBuffer)
         SHABuffer = StageBuffer
         EncodeSHAFromBuffer(SHABuffer)
-
     End Sub
 
     Private Sub EncodeSHA256()
@@ -295,6 +310,40 @@ Public Class Decoder
 
     Private Sub EncodeUrlPath()
         Output = HttpUtility.UrlPathEncode(Input)
+    End Sub
+
+#End Region
+
+#Region "String Manipulation"
+
+    Private Sub ReverseString()
+        Dim arr() As Char = Input.ToCharArray()
+        Array.Reverse(arr)
+        Output = New String(arr)
+    End Sub
+
+    Private Sub Lowercase()
+        Output = Input.ToLower
+    End Sub
+
+    Private Sub Uppercase()
+        Output = Input.ToUpper
+    End Sub
+
+    Private Sub Rot13()
+        Dim result As StringBuilder = New StringBuilder()
+
+        For Each ch As Char In Input
+            If (Not Char.IsLetter(ch)) Then
+                result.Append(ch)
+                Continue For
+            End If
+            Dim checkIndex As Integer = Asc("a") - (Char.IsUpper(ch) * -32)
+            Dim index As Integer = ((Asc(ch) - checkIndex) + 13) Mod 26
+            result.Append(Chr(index + checkIndex))
+        Next
+
+        Output = result.ToString
     End Sub
 
 #End Region

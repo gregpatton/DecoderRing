@@ -12,6 +12,10 @@
         SHA512 = 8
         URL = 9
         URLPath = 10
+        Reverse = 11
+        Lowercase = 12
+        Uppercase = 13
+        Rot13 = 14
     End Enum
 
 
@@ -67,6 +71,18 @@
 
             Case EncodingMethods.URLPath
                 Return Decoder.EncodingMethod.URLPath
+
+            Case EncodingMethods.Reverse
+                Return Decoder.EncodingMethod.Reverse
+
+            Case EncodingMethods.Lowercase
+                Return Decoder.EncodingMethod.Lowercase
+
+            Case EncodingMethods.Uppercase
+                Return Decoder.EncodingMethod.Uppercase
+
+            Case EncodingMethods.Rot13
+                Return Decoder.EncodingMethod.Rot13
 
             Case Else
                 Dim exMethod As New Exception("Invalid Encoding Method")
@@ -149,6 +165,18 @@
                 Case EncodingMethods.URLPath
                     cmdDecode.Enabled = False
 
+                Case EncodingMethods.Reverse
+                    cmdDecode.Enabled = False
+
+                Case EncodingMethods.Lowercase
+                    cmdDecode.Enabled = False
+
+                Case EncodingMethods.Uppercase
+                    cmdDecode.Enabled = False
+
+                Case EncodingMethods.Rot13
+                    cmdDecode.Enabled = False
+
                 Case Else
                     Dim exMethod As New Exception("Invalid Method Selected")
                     Throw exMethod
@@ -159,4 +187,5 @@
             MsgBox(ex.ToString, MsgBoxStyle.Critical, "Method Selection Error")
         End Try
     End Sub
+
 End Class

@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Decoder Ring")> 
 <Assembly: AssemblyDescription("Decoder Ring")> 
-<Assembly: AssemblyCompany("gregpatton")> 
+<Assembly: AssemblyCompany("Greg Patton")> 
 <Assembly: AssemblyProduct("Decoder Ring")> 
 <Assembly: AssemblyCopyright("Copyright © 2013")> 
 <Assembly: AssemblyTrademark("")> 
