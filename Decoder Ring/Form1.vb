@@ -16,6 +16,7 @@
         Lowercase = 12
         Uppercase = 13
         Rot13 = 14
+        ASCII = 15
     End Enum
 
 
@@ -83,6 +84,9 @@
 
             Case EncodingMethods.Rot13
                 Return Decoder.EncodingMethod.Rot13
+
+            Case EncodingMethods.ASCII
+                Return Decoder.EncodingMethod.ASCII
 
             Case Else
                 Dim exMethod As New Exception("Invalid Encoding Method")
@@ -175,6 +179,9 @@
                     cmdDecode.Enabled = False
 
                 Case EncodingMethods.Rot13
+                    cmdDecode.Enabled = False
+
+                Case EncodingMethods.ASCII
                     cmdDecode.Enabled = False
 
                 Case Else

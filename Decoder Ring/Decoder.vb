@@ -66,6 +66,7 @@ Public Class Decoder
         Lowercase = 12
         Uppercase = 13
         Rot13 = 14
+        ASCII = 15
     End Enum
 
 #End Region
@@ -133,6 +134,9 @@ Public Class Decoder
 
                 Case EncodingMethod.Rot13
                     Rot13()
+
+                Case EncodingMethod.ASCII
+                    ASCIIString()
 
                 Case Else
                     Output = INVALIDREQUEST
@@ -344,6 +348,18 @@ Public Class Decoder
         Next
 
         Output = result.ToString
+    End Sub
+
+    Private Sub ASCIIString()
+        Dim asciibytes As Byte()
+        Dim ascii As Encoding = Encoding.ASCII
+        asciibytes = Encoding.ASCII.GetBytes(Input)
+
+        Output = String.Empty
+        For Each b As Byte In asciibytes
+            Output = Output + b.ToString + " "
+        Next
+
     End Sub
 
 #End Region
